@@ -68,3 +68,9 @@ SELECT prenom,nom,email,entreprise,age,pays FROM clients ORDER BY age ASC,prenom
 
 -- 10.  DISTINCT : Eliminer les duplications
 SELECT DISTINCT pays FROM clients ORDER BY pays;
+
+-- 11.Fusionner les donnes de plusieurs colonnes
+SELECT CONCAT(prenom," ",nom),pays FROM clients LIMIT 20;
+
+-- 12.Fusionner les donnes de plusieurs colonnes + alias
+SELECT CONCAT(prenom," ",nom) AS full_name ,pays as country FROM clients LIMIT 20;
