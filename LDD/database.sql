@@ -29,3 +29,6 @@ DESCRIBE clients;
 -- 6.Ajouter une colonne
 ALTER TABLE clients ADD COLUMN postnom VARCHAR(50);-- Sans specifier l'ordre
 ALTER TABLE clients ADD COLUMN postnom VARCHAR(50) AFTER prenom; -- Specifier l'ordre
+
+-- 7. Modifier une colonne
+ALTER TABLE clients CHANGE COLUMN telephone telephone VARCHAR(16) NOT NULL;
