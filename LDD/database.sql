@@ -1,3 +1,6 @@
+--EN => DDL : Data definition language
+--FR => LDD : Langage de definition de donnees
+
 -- 1.Creation de la base de donnees
 -- CREATE DATABASE <nom_base_de_donnees>;
 CREATE DATABASE crm_poei_17_juillet;

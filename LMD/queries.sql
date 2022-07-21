@@ -1,3 +1,6 @@
+--EN => DML : Data manipulation language
+--FR => LMD : Langage de manipulation de donnees
+
 -- 1.INSERER une seule ligne
 INSERT INTO clients(prenom,nom, email, telephone, entreprise)
 VALUES("Christian","Lisangola","christian.lisangola@gmail.com","+33656886477","Coderbase");
@@ -34,6 +37,34 @@ SELECT prenom,nom,email,entreprise FROM clients WHERE prenom LIKE "chris%";-- ch
 -- cocacola
 SELECT prenom,nom,email,entreprise FROM clients WHERE nom LIKE "%ola"; -- chaine qui se terminent par "ola"
 
+-- tous les clients ayant une adresse qui contient "@wordpress"
+-- chris@wordpress.com
+SELECT prenom,nom,email,entreprise FROM clients WHERE email LIKE "%@wordpress%";
+
+-- 6.LIMITER LE RESULTAT
+SELECT prenom,nom,email,entreprise FROM clients LIMIT 15;
+
 
 
 -- 6. WHERE ET CONDITIONS
+SELECT prenom,nom,email,entreprise,age,pays FROM clients WHERE age>=20 AND age<=50 LIMIT 20;
+SELECT prenom,nom,email,entreprise,age,pays FROM clients WHERE age BETWEEN 20 AND 50 LIMIT 20;
+
+-- 7. Lister tous les clients qui sont mineeur(<18) , qui sont des americains(USA)
+SELECT prenom,nom,email,entreprise,age,pays FROM clients WHERE age<18 AND pays="United States" LIMIT 20;
+
+-- 8. Lister les clients Chinois, Indonesia, Americains
+SELECT prenom,nom,email,entreprise,age,pays FROM clients WHERE pays="United States" OR pays="China" OR pays="Indonesia" LIMIT 20;
+SELECT prenom,nom,email,entreprise,age,pays FROM clients WHERE pays IN ("United States","China","Indonesia") LIMIT 20;
+
+
+-- 9. ORDER BY
+-- ASC : Croissant
+-- DESC : Decroissant
+SELECT prenom,nom,email,entreprise,age,pays FROM clients ORDER BY prenom ASC LIMIT 20;
+
+-- ORDER BY : plusieurs criteres
+SELECT prenom,nom,email,entreprise,age,pays FROM clients ORDER BY age ASC,prenom ASC  LIMIT 20;
+
+-- 10.  DISTINCT : Eliminer les duplications
+SELECT DISTINCT pays FROM clients ORDER BY pays;
