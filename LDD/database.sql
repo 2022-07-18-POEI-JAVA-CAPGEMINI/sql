@@ -32,3 +32,5 @@ ALTER TABLE clients ADD COLUMN postnom VARCHAR(50) AFTER prenom; -- Specifier l'
 
 -- 7. Modifier une colonne
 ALTER TABLE clients CHANGE COLUMN telephone telephone VARCHAR(16) NOT NULL;
+
+-- 7. Insert
