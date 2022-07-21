@@ -17,3 +17,9 @@ insert into clients (prenom, nom, email, telephone, entreprise) values ('Martita
 INSERT INTO clients(prenom,nom, postnom,email, telephone, entreprise)
 VALUES("Christophe","Gueroult","","c.gueroult@sopra.io","+33650086477","Sopra Steria"),
 ("Jean","Zozor","jean@gmail.com","","+32565656565","Google");
+
+-- 3.SELECT : Toutes les colonnes
+SELECT * FROM clients;
+
+-- 3.SELECT : Quelques colonnes
+SELECT nom,prenom,entreprise FROM clients;
