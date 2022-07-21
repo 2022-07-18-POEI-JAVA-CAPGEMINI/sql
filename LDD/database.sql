@@ -19,3 +19,13 @@ CREATE TABLE clients(
     entreprise VARCHAR(50) NOT NULL
 );
 
+-- 4. Lister toutes les tables d'une BD
+SHOW TABLES;
+
+-- 5. Voir la description d'une table
+DESC clients;
+DESCRIBE clients;
+
+-- 6.Ajouter une colonne
+ALTER TABLE clients ADD COLUMN postnom VARCHAR(50);-- Sans specifier l'ordre
+ALTER TABLE clients ADD COLUMN postnom VARCHAR(50) AFTER prenom; -- Specifier l'ordre
