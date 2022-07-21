@@ -21,5 +21,19 @@ VALUES("Christophe","Gueroult","","c.gueroult@sopra.io","+33650086477","Sopra St
 -- 3.SELECT : Toutes les colonnes
 SELECT * FROM clients;
 
--- 3.SELECT : Quelques colonnes
+-- 4.SELECT : Quelques colonnes
 SELECT nom,prenom,entreprise FROM clients;
+
+-- 5. WHERE ET LIKE
+-- christian
+-- christophe
+-- christine
+SELECT prenom,nom,email,entreprise FROM clients WHERE prenom LIKE "chris%";-- chaine qui commencent par "chris"
+
+-- lisangola
+-- cocacola
+SELECT prenom,nom,email,entreprise FROM clients WHERE nom LIKE "%ola"; -- chaine qui se terminent par "ola"
+
+
+
+-- 6. WHERE ET CONDITIONS
