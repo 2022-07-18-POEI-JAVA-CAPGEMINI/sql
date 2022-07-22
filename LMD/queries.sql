@@ -74,3 +74,38 @@ SELECT CONCAT(prenom," ",nom),pays FROM clients LIMIT 20;
 
 -- 12.Fusionner les donnes de plusieurs colonnes + alias
 SELECT CONCAT(prenom," ",nom) AS full_name ,pays as country FROM clients LIMIT 20;
+
+-- 13.UPDATE : Mettre à jour un enregistrement
+-- a. Mettre à jours tous les enresgistrements de la table
+UPDATE clients SET postnom="Zozor";
+
+-- b. Mettre à jour un seul enregisterement
+
+UPDATE clients SET postnom="Zozor", email="zozor@hotmail.fr" WHERE id=2;
+UPDATE clients SET nom="Lisangola",prenom="Christian",entreprise="Coderbase",email="chris@gmail.com" WHERE id=2;
+UPDATE clients SET postnom="Zozor" WHERE id=2;
+UPDATE clients SET email="chris@gmail.com" WHERE id=2 AND pays="Sweden";
+-- 14. DELETE : Supprimer un enregistrement
+-- Supprimer l'enregistrement avec id = 7
+DELETE FROM clients WHERE id=7;
+
+-- Supprimer tous les Thailandais
+DELETE FROM clients WHERE pays="Thailand";
+
+-- 15.Clé étrangeres
+CREATE TABLE telephones(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    numero VARCHAR(20) NOT NULL, 
+    id_client INT,
+    -- Suppression de la ligne quand on supprimer l'enregistrement du même id dans la table clients
+    FOREIGN KEY(id_client) REFERENCES clients(id) ON DELETE CASCADE,
+
+     -- Mis à jour de la ligne id_client quand la valeur de `id` de la table client change
+    -- FOREIGN KEY(id_client) REFERENCES clients(id) ON UPDATE CASCADE,
+
+     -- Mettre la valeur de id_client a NULL quand on supprimer l'enregistrement du même id dans la table clients
+    -- FOREIGN KEY(id_client) REFERENCES clients(id) ON DELETE SET NULL,
+
+    -- Refus de suppression
+    --FOREIGN KEY(id_client) REFERENCES clients(id) ON DELETE RESTRICT,
+);
