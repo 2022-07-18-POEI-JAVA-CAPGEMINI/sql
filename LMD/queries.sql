@@ -98,7 +98,7 @@ CREATE TABLE telephones(
     numero VARCHAR(20) NOT NULL, 
     id_client INT,
     -- Suppression de la ligne quand on supprimer l'enregistrement du même id dans la table clients
-    FOREIGN KEY(id_client) REFERENCES clients(id) ON DELETE CASCADE,
+    FOREIGN KEY(id_client) REFERENCES clients(id) ON DELETE CASCADE
 
      -- Mis à jour de la ligne id_client quand la valeur de `id` de la table client change
     -- FOREIGN KEY(id_client) REFERENCES clients(id) ON UPDATE CASCADE,
@@ -109,3 +109,9 @@ CREATE TABLE telephones(
     -- Refus de suppression
     --FOREIGN KEY(id_client) REFERENCES clients(id) ON DELETE RESTRICT,
 );
+
+-- 16.Afficher les noms et numéros de téléphone de tous les clients(LIMIT 30)
+SELECT * FROM clients INNER JOIN telephones ON clients.id=telephones.id_client LIMIT 30;
+SELECT clients.prenom,clients.nom,clients.email,telephones.numero 
+FROM clients INNER JOIN telephones 
+ON clients.id=telephones.id_client LIMIT 30;
