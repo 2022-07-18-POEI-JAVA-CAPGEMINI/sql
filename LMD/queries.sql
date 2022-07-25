@@ -115,3 +115,26 @@ SELECT * FROM clients INNER JOIN telephones ON clients.id=telephones.id_client L
 SELECT clients.prenom,clients.nom,clients.email,telephones.numero 
 FROM clients INNER JOIN telephones 
 ON clients.id=telephones.id_client LIMIT 30;
+
+
+
+-- 17. Calcul de la moyenne
+SELECT AVG(employes) as nombre_moyen_employes FROM clients;
+
+-- 18. calcul de la somme
+SELECT SUM(employes) as somme_employes FROM clients;
+
+-- 19.Trouver la valeur maximale
+SELECT MAX(employes) AS nombre_max FROM clients;
+SELECT employes FROM clients ORDER BY employes DESC LIMIT 1; -- Vérifier le résultat de la requête d'avant
+
+
+-- 18.Trouver la valeur minimale
+SELECT MIN(employes) AS nombre_min FROM clients;
+SELECT employes FROM clients ORDER BY employes ASC LIMIT 1; -- Vérifier le résultat de la requête d'avant
+
+-- Trouver toutes les prestations dont le unit_proce > à la moyenne des unit_price
+SELECT type_presta, unit_price FROM `orders` WHERE unit_price > (SELECT AVG(unit_price) FROM orders);
+
+-- 19.GROUP BY
+SELECT type_presta,SUM(total_with_taxe) AS total_with_taxe FROM orders GROUP BY type_presta;
